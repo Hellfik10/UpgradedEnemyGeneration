@@ -1,10 +1,11 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class PatrolController : MonoBehaviour
 {
-    private List<Transform> _points = new List<Transform>();
+    [SerializeField] private List<Transform> _points = new List<Transform>();
     private float _distance = 1f;
 
     private int _currentPointIndex = 0;
@@ -20,8 +21,8 @@ public class PatrolController : MonoBehaviour
         }
     }
 
-    public void Init(List<Transform> points)
+    public Vector3 GetFirstPoint()
     {
-        _points = points;
+        return _points.First().position;
     }
 }
